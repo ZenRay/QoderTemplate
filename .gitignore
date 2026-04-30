@@ -1,6 +1,10 @@
 # Qoder 本地私有配置（不提交）
 .qoder/setting.local.json
 
+# 会话草稿笔记（个人材料，不提交）
+.qoder/notes/*
+!.qoder/notes/.gitkeep
+
 # Hooks 运行日志
 .qoderwork/logs/
 

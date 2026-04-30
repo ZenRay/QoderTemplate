@@ -1,0 +1,4 @@
+# .qoder/notes — 会话草稿目录
+# 存放 Qoder 会话中产生的原始笔记和讨论要点
+# 格式：YYYY-MM-DD_主题.md
+# 注意：此目录已加入 .gitignore，不提交到 Git
