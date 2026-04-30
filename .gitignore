@@ -1,0 +1,8 @@
+# Qoder 本地私有配置（不提交）
+.qoder/setting.local.json
+
+# Hooks 运行日志
+.qoderwork/logs/
+
+# macOS
+.DS_Store

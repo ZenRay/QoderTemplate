@@ -1,0 +1,68 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)",
+      "Edit(./src/**)",
+      "Edit(./tests/**)",
+      "Bash(npm run*)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(grep*)",
+      "Bash(ls*)",
+      "WebFetch(domain:api.github.com)"
+    ],
+    "ask": [
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Edit(./.qoder/**)",
+      "Edit(./.qoderwork/**)"
+    ],
+    "deny": [
+      "Bash(rm*)",
+      "Bash(chmod*)",
+      "Bash(sudo*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".qoderwork/hooks/security-gate.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".qoderwork/hooks/auto-lint.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".qoderwork/hooks/log-failure.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
