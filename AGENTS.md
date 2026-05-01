@@ -47,6 +47,20 @@ knowledge management, and agent behavior.
 
 ## Core Behavioral Rules
 
+### Code Standards（强制）
+
+修改任何代码文件前，**必须主动读取**对应规范文件：
+
+| 规范 | 文件 | 触发场景 |
+|------|------|----------|
+| 注释规范 | `docs/standards/comment-style.md` | 任何代码修改 |
+
+**核心约束**：
+- 代码注释和文档字符串统一使用英文，仅在英文表达会导致歧义时用中文（例外）
+- 公共函数必须有文档注释（参数、返回值）
+- 禁止注释掉废弃代码（直接删除，Git 有记录）
+- Shell 脚本必须在文件头声明事件类型和退出码说明
+
 ### Code Safety
 - Always preview changes before applying edits to configuration files (`.qoder/**`, `.qoderwork/**`)
 - Never delete files without explicit user confirmation
