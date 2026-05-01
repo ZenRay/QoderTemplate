@@ -10,7 +10,10 @@
       "Bash(git log*)",
       "Bash(grep*)",
       "Bash(ls*)",
-      "WebFetch(domain:api.github.com)"
+      "WebFetch(domain:api.github.com)",
+      "Read(~/Documents/PersonalKnowledge/**)",
+      "Write(~/Documents/PersonalKnowledge/**)",
+      "Bash(mkdir -p ~/Documents/PersonalKnowledge/**)"
     ],
     "ask": [
       "Bash(git commit*)",
@@ -109,5 +112,17 @@
         ]
       }
     ]
+  },
+  "userConfig": {
+    "knowledgeArchive": {
+      "enabled": true,
+      "targetDir": "~/Documents/PersonalKnowledge",
+      "description": "控制 /archive-session 是否写入归档工作区。enabled=false 时仅生成内容预览，不写文件"
+    },
+    "knowledgeNotes": {
+      "enabled": true,
+      "notesDir": ".qoder/notes",
+      "description": "控制是否在会话中自动创建草稿笔记到 .qoder/notes/。enabled=false 时，AI 不主动创建草稿文件"
+    }
   }
 }
