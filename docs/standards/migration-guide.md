@@ -24,7 +24,7 @@
 | **零修改复用** | `.qoder/commands/`、`.qoder/agents/`、`.qoder/skills/`、`docs/standards/`（本文件除外）、`.qoder/README.md`、`hooks/`（除 `auto-lint.sh`）| 直接 copy，不改任何内容 |
 | **少量替换** | `AGENTS.md`（项目名/Repo URL/版本）、`setting.json`（`src/tests` 路径）、`auto-lint.sh`（linter 工具）| 替换 3~5 处占位符（见各场景说明）|
 | **全部重建** | `docs/context/`（architecture/constraints/adr）、`docs/private/`（状态三件套）、`STATE.md` | 为新项目重新创建，不照抄 |
-| **直接删除** | 范式研发期文档：`docs/Hooks配置操作手册.md` 等项目特有的历史文档 | 迁移后不需要这些文件（`docs/知识材料管理方案.md` 已移至 `docs/private/`，不再出现在 Template 中）|
+| **直接删除** | 范式研发期文档（均已移至 `docs/private/`，不再出现在 Template 中）| 无需操作（`docs/知识材料管理方案.md`、`docs/Hooks配置操作手册.md` 均已内置排除）|
 
 ---
 
