@@ -12,7 +12,7 @@
 | 阶段 | **V0.9 进行中：三套范式命令设计就绪，待真实项目执行验证** |
 | 活跃分支 | `master` |
 | 下一里程碑 | 棕地实际验证 /paradigm-adopt，或 ≥2 个下游项目验证 /paradigm-sync |
-| 最近 Commit | `a365f31` — feat: add /paradigm-init command and fix migration-guide gaps |
+| 最近 Commit | `598c56f` — feat: add /paradigm-adopt and /paradigm-sync commands, V0.9 |
 
 ## P3 待验证事项
 
