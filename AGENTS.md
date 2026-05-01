@@ -92,7 +92,8 @@ knowledge management, and agent behavior.
 │   │   ├── archive-session.md   # /archive-session
 │   │   ├── update-state.md      # /update-state
 │   │   ├── load-context.md      # /load-context
-│   │   └── review-hooks.md      # /review-hooks
+│   │   ├── review-hooks.md      # /review-hooks
+│   │   └── paradigm-init.md     # /paradigm-init
 │   ├── notes/                   # 会话草稿（不提交 Git）
 │   ├── repowiki/                # 代码库 Wiki（自动生成）
 │   ├── skills/
