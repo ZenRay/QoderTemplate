@@ -8,5 +8,9 @@
 # Hooks 运行日志
 .qoderwork/logs/
 
+# 个人/临时私有文档（不提交）
+docs/private/*
+!docs/private/.gitkeep
+
 # macOS
 .DS_Store
