@@ -9,27 +9,20 @@
 
 | 字段 | 值 |
 |------|-----|
-| 阶段 | V0.3 建设中 |
+| 阶段 | **V0.4 已发布，P0~P2 全部清零** |
 | 活跃分支 | `master` |
-| 下一里程碑 | V0.3 Tag + Push |
-| 最近 Commit | `25f7ceb` — repowiki + private docs 重构 |
+| 下一里程碑 | P3（条件触发）或新需求驱动 |
+| 最近 Commit | `d93d311` — README 补全三命令文档（tag: V0.4）|
 
-## 活跃阻塞
+## P3 待触发事项
 
-- 无
+| 条件 | 任务 |
+|------|------|
+| 复制范式到新项目 | `/review-hooks`、`/new-project`、`hooks-reviewer` Agent |
+| failure.log > 1MB | 日志轮转 |
 
-## 进行中工作（P1）
+## 最近决策摘要
 
-- [ ] `/archive-session` 斜杠命令
-- [ ] AGENTS.md 完善（指针机制 + SubAgent 广播）
-- [x] STATE.md 三件套建立 ← **当前**
-- [ ] `/update-state` 斜杠命令
-- [ ] `docs/standards/comment-style.md`
-
-## 最近重要决策
-
-| 日期 | 决策 | 结论 |
-|------|------|------|
-| 2026-05-01 | 私有文档管理 | `docs/private/` 目录统一排除，替代逐文件 .gitignore |
-| 2026-05-01 | PreCompact Hook | IDE 插件不支持，知识归档改为 `/archive-session` 主动触发 |
-| 2026-04-30 | 知识管理方案 | 方案C：草稿层 `.qoder/notes/` + 精炼层 `~/Documents/PersonalKnowledge/` |
+- 工程规范文档通用化（不绑定项目/人员规模）
+- docs/context/ = Layer 2，按需加载，与 Wiki 互补
+- 代码注释英文优先，中文仅用于例外场景
