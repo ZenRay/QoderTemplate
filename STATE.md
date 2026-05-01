@@ -12,7 +12,7 @@
 | 阶段 | **V0.9+ 就绪：3 个 Gap 全部修复，绿地 + 同步场景功能完备** |
 | 活跃分支 | `master` |
 | 下一里程碑 | 棕地实际验证 /paradigm-adopt，或 ≥2 个下游项目验证 /paradigm-sync |
-| 最近 Commit | `3322385` — feat: implement in-memory tarball for paradigm commands, fix docs and spec gaps |
+| 最近 Commit | `3322385` + fix: add .gitignore to NEEDED_PATHS in paradigm-init (Test2 通过) |
 
 ## P3 待验证事项
 
