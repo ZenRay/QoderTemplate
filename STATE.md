@@ -12,7 +12,7 @@
 | 阶段 | **V0.5 发布准备，范式可迁移性基础落地** |
 | 活跃分支 | `master` |
 | 下一里程碑 | GitHub Repo 设为 Template / P3 条件触发 |
-| 最近 Commit | 待本次提交更新 |
+| 最近 Commit | `37fbb9f` — add migration-guide.md, move 知识材料管理方案 to private |
 
 ## P3 待触发事项
 
