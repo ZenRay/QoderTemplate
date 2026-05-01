@@ -86,19 +86,22 @@ docs: add repowiki, restructure private docs to docs/private/
 
 ## 分支命名规范
 
-本项目当前为**个人单人项目**，直接在 `master` 主干开发，不需要功能分支。
-
-若未来需要分支（协作或大型功能），遵循以下格式：
+所有分支遵循以下格式：
 
 ```
 <type>/<short-description>
 ```
+
+`short-description` 使用连字符 `-` 分隔，全部小写。
 
 | 示例 | 用途 |
 |------|------|
 | `feat/hooks-tier4-audit` | 新功能开发 |
 | `fix/security-gate-regex` | 缺陷修复 |
 | `docs/context-layer2` | 文档更新 |
+| `chore/update-dependencies` | 构建/配置变更 |
+
+**单人项目简化原则**：日常小功能可直接在 `master` 上开发；不确定是否提交、需要试验或协作时再建分支。
 
 ---
 
