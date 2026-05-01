@@ -12,7 +12,7 @@
 | 阶段 | **V0.6 已发布，范式可迁移性全量落地** |
 | 活跃分支 | `master` |
 | 下一里程碑 | P3 条件触发（`/paradigm-init` 等待第一次真实迁移）|
-| 最近 Commit | 待本次提交更新 |
+| 最近 Commit | `45c3c97` — mark GitHub Template enabled, update STATE.md to V0.6 |
 
 ## P3 待触发事项
 
