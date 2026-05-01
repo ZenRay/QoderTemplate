@@ -26,8 +26,8 @@ knowledge management, and agent behavior.
 | **任何新会话开始** | `STATE.md` — 当前项目状态看板 |
 | **查看上次进度或交接** | `docs/private/state/handoff.md` — 上次会话交接备忘 |
 | **跨会话持续任务** | `docs/private/state/wip.md` — 进行中工作清单 |
-| 涉及架构设计、服务依赖 | `docs/context/architecture.md`（存在时） |
-| 涉及合规或特殊约束 | `docs/context/constraints.md`（存在时） |
+| 涉及架构设计、服务依赖 | `docs/context/architecture.md`（存在时），或运行 `/load-context arch` |
+| 涉及合规或特殊约束 | `docs/context/constraints.md`（存在时），或运行 `/load-context constraints` |
 | 涉及代码注释或风格规范 | `docs/standards/comment-style.md`（存在时） |
 | 需要了解配置详情 | `.qoder/README.md` |
 
@@ -88,7 +88,9 @@ knowledge management, and agent behavior.
 ├── .qoder/
 │   ├── agents/                  # 自定义子 Agent
 │   ├── commands/                # 自定义斜杠命令
-│   │   └── archive-session.md   # /archive-session
+│   │   ├── archive-session.md   # /archive-session
+│   │   ├── update-state.md      # /update-state
+│   │   └── load-context.md      # /load-context
 │   ├── notes/                   # 会话草稿（不提交 Git）
 │   ├── repowiki/                # 代码库 Wiki（自动生成）
 │   ├── skills/
