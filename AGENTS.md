@@ -103,6 +103,10 @@ knowledge management, and agent behavior.
 │   ├── notify-done.sh           # Stop：桌面通知
 │   └── knowledge-trigger.sh     # PreCompact/SessionEnd（CLI 专属）
 ├── docs/
+│   ├── context/                 # Layer 2 按需加载文档（Git 追踪）
+│   │   ├── architecture.md      # 系统架构全景
+│   │   ├── constraints.md       # 技术约束与边界清单
+│   │   └── adr/                 # 架构决策记录
 │   ├── private/                 # 私有文档（不提交 Git）
 │   │   ├── state/
 │   │   │   ├── wip.md           # 跨会话进行中工作
