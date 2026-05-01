@@ -93,7 +93,9 @@ knowledge management, and agent behavior.
 │   │   ├── update-state.md      # /update-state
 │   │   ├── load-context.md      # /load-context
 │   │   ├── review-hooks.md      # /review-hooks
-│   │   └── paradigm-init.md     # /paradigm-init
+│   │   ├── paradigm-init.md     # /paradigm-init
+│   │   ├── paradigm-adopt.md    # /paradigm-adopt
+│   │   └── paradigm-sync.md     # /paradigm-sync
 │   ├── notes/                   # 会话草稿（不提交 Git）
 │   ├── repowiki/                # 代码库 Wiki（自动生成）
 │   ├── skills/
@@ -120,8 +122,7 @@ knowledge management, and agent behavior.
 │   └── private/                 # 私有文档（不提交 Git）
 │       └── state/               # wip.md + handoff.md（会话状态）
 ├── STATE.md                     # 项目状态看板（Git 追踪，≤30行）
-├── AGENTS.md                    # 本文件
-└── package.json
+└── AGENTS.md                    # 本文件
 ```
 
 ---
