@@ -9,20 +9,20 @@
 
 | 字段 | 值 |
 |------|-----|
-| 阶段 | **V0.4 已发布，P0~P2 全部清零** |
+| 阶段 | **V0.5 发布准备，范式可迁移性基础落地** |
 | 活跃分支 | `master` |
-| 下一里程碑 | P3（条件触发）或新需求驱动 |
-| 最近 Commit | `7df05ac` — add review-hooks / hooks-reviewer / workflow.md，AGENTS.md V0.4 |
+| 下一里程碑 | GitHub Repo 设为 Template / P3 条件触发 |
+| 最近 Commit | 待本次提交更新 |
 
 ## P3 待触发事项
 
 | 条件 | 任务 |
 |------|------|
-| 复制范式到新项目 | `/review-hooks`、`/new-project` |
+| 有迁移需求 | GitHub Repo 设为 Template、`/paradigm-init` |
 | failure.log > 1MB | 日志轮转 |
 
 ## 最近决策摘要
 
-- 范式完整性缺口幹平：/review-hooks 命令、hooks-reviewer Agent、workflow.md
-- 工程规范文档通用化（不绑定项目/人员规模）
-- docs/context/ = Layer 2，按需加载，与 Wiki 互补
+- 范式迁移体系设计落地：migration-guide.md（三场景）、CommonThink.md §5
+- 范式研发期文档归入 private（知识材料管理方案.md 不再 Git 追踪）
+- 范式可迁移性：A+C 轻量组合（migration-guide + GitHub Template 优先）
