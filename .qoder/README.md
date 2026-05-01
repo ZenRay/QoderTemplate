@@ -10,7 +10,9 @@
 .qoder/
 ├── agents/              # 自定义子 Agent（独立上下文，专职任务）
 ├── commands/            # 自定义斜杠命令（Prompt 模板，/命令名 触发）
-│   └── archive-session.md
+│   ├── archive-session.md   # /archive-session
+│   ├── update-state.md      # /update-state
+│   └── load-context.md      # /load-context
 ├── notes/               # 会话草稿笔记（私有，不提交 Git）
 │   └── .gitkeep
 ├── repowiki/            # 代码库 Wiki（Qoder 自动生成，勿手动编辑 meta）
@@ -107,6 +109,23 @@ AI 执行命令和技能时会读取此段，用于控制功能开关。
 | 命令 | 文件 | 用途 |
 |------|------|------|
 | `/archive-session` | `commands/archive-session.md` | 提炼本次会话内容，归档至 PersonalKnowledge |
+| `/update-state` | `commands/update-state.md` | 更新项目状态三件套（STATE.md / wip.md / handoff.md）|
+| `/load-context` | `commands/load-context.md` | 按需加载 `docs/context/` 下的架构文档到当前会话 |
+
+### `/load-context` 参数说明
+
+```
+/load-context [target]
+```
+
+| target | 加载内容 |
+|--------|----------|
+| 无参数 | `architecture.md` + `constraints.md`（默认组合）|
+| `arch` | 仅 `docs/context/architecture.md` |
+| `constraints` | 仅 `docs/context/constraints.md` |
+| `adr` | `docs/context/adr/` 下所有 ADR 文件 |
+| `adr-NNN` | 指定编号 ADR，如 `adr-001` |
+| `all` | 全部 docs/context/ 文档 |
 
 ---
 
@@ -128,4 +147,4 @@ AI 执行命令和技能时会读取此段，用于控制功能开关。
 
 ---
 
-*最后更新：2026-05-01 | 配套文档：`AGENTS.md`（行为规范）、`STATE.md`（项目状态）*
+*最后更新：2026-05-01 | 配套文档：`AGENTS.md`（行为规范）、`STATE.md`（项目状态）、`docs/context/`（Layer 2 架构文档）*
