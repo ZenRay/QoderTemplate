@@ -54,6 +54,7 @@ knowledge management, and agent behavior.
 | 规范 | 文件 | 触发场景 |
 |------|------|----------|
 | 注释规范 | `docs/standards/comment-style.md` | 任何代码修改 |
+| Git 提交规范 | `docs/standards/git-convention.md` | 任何 git commit / push |
 
 **核心约束**：
 - 代码注释和文档字符串统一使用英文，仅在英文表达会导致歧义时用中文（例外）
