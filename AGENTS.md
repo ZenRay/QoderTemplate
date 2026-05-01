@@ -12,7 +12,7 @@ providing standardized configuration patterns for permissions, lifecycle hooks,
 knowledge management, and agent behavior.
 
 - **Repository**: https://github.com/ZenRay/QoderTemplate.git
-- **Current version**: V0.4
+- **Current version**: V0.9
 - **Config reference**: `.qoder/README.md`
 
 ---
@@ -28,6 +28,7 @@ knowledge management, and agent behavior.
 | **跨会话持续任务** | `docs/private/state/wip.md` — 进行中工作清单 |
 | 涉及架构、约束或历史决策 | 运行 `/load-context [arch|constraints|adr|all]` |
 | 涉及代码规范或工作流 | `docs/standards/`（comment-style / git-convention / workflow）|
+| **初始化新项目 / 范式同步** | `.qoder/commands/paradigm-init.md`（绿地）或 `.qoder/commands/paradigm-sync.md`（已有项目升级）|
 | 需要了解配置详情 | `.qoder/README.md` |
 
 ---
@@ -118,7 +119,8 @@ knowledge management, and agent behavior.
 │   ├── standards/               # 工程规范（Git 追踪）
 │   │   ├── comment-style.md     # 代码注释规范
 │   │   ├── git-convention.md    # Git 提交规范
-│   │   └── workflow.md          # AI 辅助开发工作流
+│   │   ├── workflow.md          # AI 辅助开发工作流
+│   │   └── migration-guide.md   # 范式迁移操作清单（绿地/棕地/同步）
 │   └── private/                 # 私有文档（不提交 Git）
 │       └── state/               # wip.md + handoff.md（会话状态）
 ├── STATE.md                     # 项目状态看板（Git 追踪，≤30行）

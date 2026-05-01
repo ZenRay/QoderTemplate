@@ -12,7 +12,11 @@
 ├── commands/            # 自定义斜杠命令（Prompt 模板，/命令名 触发）
 │   ├── archive-session.md   # /archive-session
 │   ├── update-state.md      # /update-state
-│   └── load-context.md      # /load-context
+│   ├── load-context.md      # /load-context
+│   ├── review-hooks.md      # /review-hooks
+│   ├── paradigm-init.md     # /paradigm-init
+│   ├── paradigm-adopt.md    # /paradigm-adopt
+│   └── paradigm-sync.md     # /paradigm-sync
 ├── notes/               # 会话草稿笔记（私有，不提交 Git）
 │   └── .gitkeep
 ├── repowiki/            # 代码库 Wiki（Qoder 自动生成，勿手动编辑 meta）
@@ -78,6 +82,14 @@
 
 AI 执行命令和技能时会读取此段，用于控制功能开关。
 
+#### `paradigmTemplateVersion` — 范式模板版本
+
+```json
+"paradigmTemplateVersion": "V0.9"  // 记录本项目最后执行 /paradigm-init 或 /paradigm-sync 时使用的模板版本
+```
+
+影响命令：`/paradigm-sync`（Phase 2-A 版本比对的基准）
+
 #### `knowledgeArchive` — 归档写入开关
 
 ```json
@@ -111,6 +123,10 @@ AI 执行命令和技能时会读取此段，用于控制功能开关。
 | `/archive-session` | `commands/archive-session.md` | 提炼本次会话内容，归档至 PersonalKnowledge |
 | `/update-state` | `commands/update-state.md` | 更新项目状态三件套（STATE.md / wip.md / handoff.md）|
 | `/load-context` | `commands/load-context.md` | 按需加载 `docs/context/` 下的架构文档到当前会话 |
+| `/review-hooks` | `commands/review-hooks.md` | 触发 hooks-reviewer Agent 对 Hooks 做深度分析 |
+| `/paradigm-init` | `commands/paradigm-init.md` | 绿地新项目初始化（1 轮问答 + 7 步自动）|
+| `/paradigm-adopt` | `commands/paradigm-adopt.md` | 棕地老项目渐进式采纳范式（分模块审计 + 确认）|
+| `/paradigm-sync` | `commands/paradigm-sync.md` | 已采纳项目跟进模板升级（分级报告 + 选择应用）|
 
 ### `/load-context` 参数说明
 

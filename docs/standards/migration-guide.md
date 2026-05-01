@@ -37,7 +37,11 @@
 GitHub Repo 已设为 Template Repository（Settings → ☑ Template repository）。  
 新项目通过 "Use this template" 按钮创建，骨架文件已复制到位。
 
-> **本地迁移（不经 GitHub Template）**：可用 git archive 模拟骨架复制：
+> **本地迁移（不经 GitHub Template）**：两种方式均可：
+>
+> 方式 A（推荐）：直接在新项目目录运行 `/paradigm-init`，命令会自动通过 tarball in-memory 完成骨架复制（本地有副本则使用本地，否则从 GitHub 拉取）。
+>
+> 方式 B（手动）：本地 git archive 模拟骨架复制：
 > ```bash
 > mkdir -p <目标目录> && git init <目标目录>
 > cd <QoderTemplate路径> && git archive HEAD | tar -x -C <目标目录>

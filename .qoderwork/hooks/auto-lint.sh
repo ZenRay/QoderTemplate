@@ -32,6 +32,11 @@ case "$file" in
       gofmt -w "$file" 2>&1 || exit_code=$?
     fi
     ;;
+  *.rs)
+    if command -v rustfmt &>/dev/null; then
+      rustfmt "$file" 2>&1 || exit_code=$?
+    fi
+    ;;
   *.sh)
     if command -v shellcheck &>/dev/null; then
       shellcheck "$file" 2>&1 || exit_code=$?
