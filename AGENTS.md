@@ -12,7 +12,7 @@ providing standardized configuration patterns for permissions, lifecycle hooks,
 knowledge management, and agent behavior.
 
 - **Repository**: https://github.com/ZenRay/QoderTemplate.git
-- **Current version**: V0.3
+- **Current version**: V0.4
 - **Config reference**: `.qoder/README.md`
 
 ---
@@ -26,9 +26,8 @@ knowledge management, and agent behavior.
 | **任何新会话开始** | `STATE.md` — 当前项目状态看板 |
 | **查看上次进度或交接** | `docs/private/state/handoff.md` — 上次会话交接备忘 |
 | **跨会话持续任务** | `docs/private/state/wip.md` — 进行中工作清单 |
-| 涉及架构设计、服务依赖 | `docs/context/architecture.md`（存在时），或运行 `/load-context arch` |
-| 涉及合规或特殊约束 | `docs/context/constraints.md`（存在时），或运行 `/load-context constraints` |
-| 涉及代码注释或风格规范 | `docs/standards/comment-style.md`（存在时） |
+| 涉及架构、约束或历史决策 | 运行 `/load-context [arch|constraints|adr|all]` |
+| 涉及代码规范或工作流 | `docs/standards/`（comment-style / git-convention / workflow）|
 | 需要了解配置详情 | `.qoder/README.md` |
 
 ---
@@ -55,6 +54,7 @@ knowledge management, and agent behavior.
 |------|------|----------|
 | 注释规范 | `docs/standards/comment-style.md` | 任何代码修改 |
 | Git 提交规范 | `docs/standards/git-convention.md` | 任何 git commit / push |
+| 工作流规范 | `docs/standards/workflow.md` | 制定会话计划或任务规划时 |
 
 **核心约束**：
 - 代码注释和文档字符串统一使用英文，仅在英文表达会导致歧义时用中文（例外）
@@ -86,11 +86,13 @@ knowledge management, and agent behavior.
 ```
 .
 ├── .qoder/
-│   ├── agents/                  # 自定义子 Agent
-│   ├── commands/                # 自定义斜杠命令
+│   ├── agents/
+│   │   └── hooks-reviewer.md    # Hooks 深度分析 Agent
+│   ├── commands/
 │   │   ├── archive-session.md   # /archive-session
 │   │   ├── update-state.md      # /update-state
-│   │   └── load-context.md      # /load-context
+│   │   ├── load-context.md      # /load-context
+│   │   └── review-hooks.md      # /review-hooks
 │   ├── notes/                   # 会话草稿（不提交 Git）
 │   ├── repowiki/                # 代码库 Wiki（自动生成）
 │   ├── skills/
@@ -107,45 +109,33 @@ knowledge management, and agent behavior.
 │   └── knowledge-trigger.sh     # PreCompact/SessionEnd（CLI 专属）
 ├── docs/
 │   ├── context/                 # Layer 2 按需加载文档（Git 追踪）
-│   │   ├── architecture.md      # 系统架构全景
-│   │   ├── constraints.md       # 技术约束与边界清单
-│   │   └── adr/                 # 架构决策记录
-│   ├── private/                 # 私有文档（不提交 Git）
-│   │   ├── state/
-│   │   │   ├── wip.md           # 跨会话进行中工作
-│   │   │   └── handoff.md       # 会话交接备忘
-│   │   ├── CommonThink.md       # 深度思考记录
-│   │   └── 规划ToDo.md
-│   ├── Hooks配置操作手册.md
-│   └── 知识材料管理方案.md
+│   │   ├── architecture.md
+│   │   ├── constraints.md
+│   │   └── adr/
+│   ├── standards/               # 工程规范（Git 追踪）
+│   │   ├── comment-style.md     # 代码注释规范
+│   │   ├── git-convention.md    # Git 提交规范
+│   │   └── workflow.md          # AI 辅助开发工作流
+│   └── private/                 # 私有文档（不提交 Git）
+│       └── state/               # wip.md + handoff.md（会话状态）
 ├── STATE.md                     # 项目状态看板（Git 追踪，≤30行）
 ├── AGENTS.md                    # 本文件
-└── QoderHarnessEngineering落地示例.md
+└── package.json
 ```
 
 ---
 
 ## Hook Scripts Reference
 
-| 脚本 | 事件 | 行为 | IDE 支持 |
-|------|------|------|----------|
-| `security-gate.sh` | `PreToolUse (Bash)` | 阻断 `rm -rf`、`DROP TABLE` 等高危命令，exit 2 = 阻断 | ✅ |
-| `auto-lint.sh` | `PostToolUse (Write\|Edit)` | 按文件类型运行 ESLint/ruff/gofmt/shellcheck | ✅ |
-| `log-failure.sh` | `PostToolUseFailure (*)` | 追加失败记录到 `.qoderwork/logs/failure.log` | ✅ |
-| `prompt-guard.sh` | `UserPromptSubmit` | 检测 Prompt 注入攻击模式，exit 2 = 阻断 | ✅ |
-| `notify-done.sh` | `Stop` | 发送 macOS 桌面通知，含 stop_reason | ✅ |
-| `knowledge-trigger.sh` | `PreCompact / SessionEnd` | 提示执行知识归档（CLI 专属，IDE 不生效） | ❌ |
+详细事件-脚本映射见 `.qoder/README.md`。退出码约定：`exit 0` = 通过，`exit 2` = 阻断。
+Tier 分级：T1 安全（security-gate / prompt-guard）→ T2 质量（auto-lint / log-failure）→ T3 体验（notify-done）→ T4 知识（knowledge-trigger）。
 
 ---
 
 ## Knowledge Management
 
-- **草稿层**：`.qoder/notes/`（即时捕获，不提交 Git）
-  - 开关：`userConfig.knowledgeNotes.enabled`
-- **精炼层**：`~/Documents/PersonalKnowledge/`（结构化归档）
-  - 触发：`/archive-session` 命令
-  - 开关：`userConfig.knowledgeArchive.enabled`
-  - 目标路径：`userConfig.knowledgeArchive.targetDir`
+- **草稿层**：`.qoder/notes/`（开关：`knowledgeNotes.enabled`，不提交 Git）
+- **精炼层**：`~/Documents/PersonalKnowledge/`（触发：`/archive-session`，开关：`knowledgeArchive.enabled`）
 
 ---
 
