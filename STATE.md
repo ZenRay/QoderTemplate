@@ -9,10 +9,10 @@
 
 | 字段 | 值 |
 |------|-----|
-| 阶段 | **V0.5 发布准备，范式可迁移性基础落地** |
+| 阶段 | **V0.6 已发布，范式可迁移性全量落地** |
 | 活跃分支 | `master` |
-| 下一里程碑 | GitHub Repo 设为 Template / P3 条件触发 |
-| 最近 Commit | `37fbb9f` — add migration-guide.md, move 知识材料管理方案 to private |
+| 下一里程碑 | P3 条件触发（`/paradigm-init` 等待第一次真实迁移）|
+| 最近 Commit | 待本次提交更新 |
 
 ## P3 待触发事项
 
@@ -25,4 +25,4 @@
 
 - 范式迁移体系设计落地：migration-guide.md（三场景）、CommonThink.md §5
 - 范式研发期文档归入 private（知识材料管理方案.md 不再 Git 追踪）
-- 范式可迁移性：A+C 轻量组合（migration-guide + GitHub Template 优先）
+- 范式可迁移性 A+C 全部落地：migration-guide 已创建、GitHub Template 已开启
